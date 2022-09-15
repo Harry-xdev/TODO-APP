@@ -1,29 +1,43 @@
 import { StyleSheet } from "react-native";
 
-const itemStyles = StyleSheet.create({
-  itemContainer: {
-    borderColor: 'gray',
-    borderWidth: 1,
-    borderRadius: 8,
-    width: 380,
-    height: 60,
-    flexDirection: 'row',
-    justifyContent: "space-between",
-    alignItems: 'center',
-    paddingRight: 15,
-    paddingLeft: 15,
-    marginTop: 12,
-    
-  }, 
-  itemTitle: {
-    fontSize: 22,
+const styles = StyleSheet.create({
+  inputBorder: {
+    borderBottomWidth: 2,
+    borderBottomColor: 'gray',
+    width: '50%',
+    marginRight: 15,
 
   },
+  addBtn: {
+    width: 51,
+    height: 51,
+    backgroundColor: '#1fb791',
+    borderRadius: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  itemContainer: {
+    borderWidth: 0,
+    borderRadius: 15,
+    backgroundColor: '#1fb791',
+    width: 380,
+    flexDirection: 'row',
+    justifyContent: "space-between",
+    // alignItems: 'center',
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingRight: 15,
+    paddingLeft: 15,
+    marginTop: 10,
 
-  itemRemove: {
-    fontSize: 25,
-
-  }
+  },
+  itemTitle: {
+    fontSize: 22,
+    width: '90%',
+    height: '100%',
+    color: '#fff',
+    padding: 10
+  },
 })
 
-export default itemStyles;
+export default styles;

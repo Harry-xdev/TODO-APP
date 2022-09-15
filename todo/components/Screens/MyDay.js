@@ -1,21 +1,24 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, TextInput, ScrollView } from "react-native";
-import itemStyles from "../StyleSheet/Items";
-
+import styles from "../StyleSheet/Items";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 function MyDay() {
   const [inputDay, setInputDay] = useState('');
-  const [getList, setList] = useState([])
+  const [getList, setList] = useState([]);
+
 
   const addItem = () => {
     // console.log(inputDay);
     if (inputDay === '') {
-      alert('Please input your task!');
+      // console.log(inputDay);
+      alert('Please input your tasks!');
+
     } else {
       setList([
         ...getList,
         { key: Math.random().toString(), data: inputDay }
-      ])
+      ]);
       setInputDay('');
     }
 
@@ -29,34 +32,40 @@ function MyDay() {
 
   return (
     <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-      <View style={{ flexDirection: "row" }}>
+      <View style={{ flexDirection: "row", padding: 15 }}>
         <TextInput
+          style={styles.inputBorder}
           placeholder="Input your tasks..."
           onChangeText={text => setInputDay(text)}
           value={inputDay}
         />
         <TouchableOpacity
           onPress={addItem}
+          style={styles.addBtn}
+          activeOpacity={0.7}
         >
-          <Text>Add</Text>
+          <Text style={{ color: '#fff' }}>Add</Text>
         </TouchableOpacity>
 
       </View>
       <View>
         <Text>{inputDay}</Text>
       </View>
-      <ScrollView>
+      <ScrollView style={{ marginBottom: 40 }}>
         {getList.map((item) =>
           <TouchableOpacity
             key={item.key}
-
-            style={itemStyles.itemContainer}
+            activeOpacity={0.7}
+            style={styles.itemContainer}
           >
-            <Text style={itemStyles.itemTitle}>{item.data}</Text>
+            <Text style={styles.itemTitle}>{item.data}</Text>
             <TouchableOpacity
               onPress={() => removeItem(item.key)}
+              style={{ padding: 10 }}
+
             >
-              <Text style={itemStyles.itemRemove}>X</Text>
+              <MaterialIcons name={'delete-outline'} color={'#fff'} size={30} />
+              {/* <Text style={styles.itemRemove}>X</Text> */}
             </TouchableOpacity>
           </TouchableOpacity>)
         }

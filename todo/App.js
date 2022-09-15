@@ -8,6 +8,12 @@ import Planned from './components/Screens/Planned';
 import MyDay from './components/Screens/MyDay';
 import Important from './components/Screens/Important';
 
+// import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Octicons from "react-native-vector-icons/Octicons";
+
+
 
 
 const Tab = createBottomTabNavigator();
@@ -18,19 +24,29 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator initialRouteName='My Day'>
         <Tab.Screen
-          name="My Day"
+          name={"My Day"}
           component={MyDay}
-        // options={{title: 'To day'}}
+          options={{
+            tabBarIcon: (color) => (<Icon name={'sun-o'} color={color} size={30} />)
+
+          }}
+          style={{ padding: 10 }}
         />
-       
+
         <Tab.Screen
-          name="Planned"
+          name={"Planned"}
           component={Planned}
+          options={{
+            tabBarIcon: (color) => (<MaterialIcons name={'schedule'} color={color} size={30} />)
+          }}
 
         />
         <Tab.Screen
-          name="Important"
+          name={"Important 2"}
           component={Important}
+          options={{
+            tabBarIcon: (color) => (<Octicons name={'star'} color={color} size={30} />)
+          }}
 
         />
       </Tab.Navigator>
