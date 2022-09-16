@@ -4,14 +4,17 @@ const styles = StyleSheet.create({
   inputBorder: {
     borderBottomWidth: 2,
     borderBottomColor: 'gray',
-    width: '50%',
+    width: '82%',
     marginRight: 15,
+    color: 'white',
+    fontSize: 18,
+    
 
   },
   addBtn: {
-    width: 51,
-    height: 51,
-    backgroundColor: '#1fb791',
+    width: 53,
+    height: 53,
+    backgroundColor: '#7097a4',
     borderRadius: 15,
     justifyContent: 'center',
     alignItems: 'center',
@@ -19,7 +22,7 @@ const styles = StyleSheet.create({
   itemContainer: {
     borderWidth: 0,
     borderRadius: 15,
-    backgroundColor: '#1fb791',
+    backgroundColor: '#fff',
     width: 380,
     flexDirection: 'row',
     justifyContent: "space-between",
@@ -35,7 +38,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     width: '90%',
     height: '100%',
-    color: '#fff',
+    color: '#000',
     padding: 10
   },
 })

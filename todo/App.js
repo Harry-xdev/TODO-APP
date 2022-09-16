@@ -4,11 +4,12 @@ import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+// Screens
 import Planned from './components/Screens/Planned';
 import MyDay from './components/Screens/MyDay';
 import Important from './components/Screens/Important';
 
-// import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+// Icon
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Octicons from "react-native-vector-icons/Octicons";
@@ -42,7 +43,7 @@ export default function App() {
 
         />
         <Tab.Screen
-          name={"Important 2"}
+          name={"Important"}
           component={Important}
           options={{
             tabBarIcon: (color) => (<Octicons name={'star'} color={color} size={30} />)
