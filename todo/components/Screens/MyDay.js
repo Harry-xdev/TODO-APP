@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, TextInput, ScrollView, ImageBackground } from "react-native";
-// import CheckBox  from "react-native-radio-check";
-import styles from "../StyleSheet/Items";
+import { View, Text, TouchableOpacity, TextInput, ScrollView, ImageBackground, StyleSheet, Pressable } from "react-native";
+
+import styles from "../StyleSheet/TodoScreen";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 function MyDay() {
   const [inputDay, setInputDay] = useState('');
   const [getList, setList] = useState([]);
-  const dataMyDay = getList;
+  const [selected, setSelected] = useState(false);
 
   const addItem = () => {
     // console.log(inputDay);
@@ -24,15 +24,13 @@ function MyDay() {
     }
 
   }
-  // console.log(dataMyDay);
-
 
   const removeItem = (itemkey) => {
     var newList = getList.filter(item => item.key !== itemkey);
     setList(newList);
     // console.log(newList);
-
   }
+
 
   return (
     <View style={{ alignItems: 'center', justifyContent: 'center' }}>
@@ -65,13 +63,19 @@ function MyDay() {
         <View>
           <Text>{inputDay}</Text>
         </View>
-        <ScrollView style={{ marginBottom: 40 }}>
+        <ScrollView contentContainerStyle={styleScrollView.contentContainer}>
           {getList.map((item) =>
             <TouchableOpacity
               key={item.key}
               activeOpacity={0.7}
               style={styles.itemContainer}
             >
+              <TouchableOpacity
+                style={styleScrollView.checkBox}
+                onPress={ () => setSelected(!selected)}
+
+              >
+              </TouchableOpacity>
               <Text style={styles.itemTitle}>{item.data}</Text>
               <TouchableOpacity
                 onPress={() => removeItem(item.key)}
@@ -88,6 +92,24 @@ function MyDay() {
 
     </View>
   )
-}
+};
+
+const styleScrollView = StyleSheet.create({
+  contentContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 40,
+    width: '100%',
+  },
+  checkBox: {
+    height: 25,
+    width: 25,
+    borderColor: '#7097a4',
+    borderWidth: 2.5,
+    borderRadius: 50,
+    marginTop: 13,
+  }
+  
+})
 
 export default MyDay;

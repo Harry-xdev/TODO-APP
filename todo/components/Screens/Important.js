@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, TextInput, ScrollView, ImageBackground } from "react-native";
-import styles from "../StyleSheet/Items";
+import styles from "../StyleSheet/TodoScreen";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 function Important() {

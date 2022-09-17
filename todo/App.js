@@ -31,7 +31,7 @@ export default function App() {
             tabBarIcon: (color) => (<Icon name={'sun-o'} color={color} size={30} />)
 
           }}
-          style={{ padding: 10 }}
+
         />
 
         <Tab.Screen
