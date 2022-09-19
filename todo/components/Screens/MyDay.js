@@ -7,7 +7,7 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 function MyDay() {
   const [inputDay, setInputDay] = useState('');
   const [getList, setList] = useState([]);
-  const [selected, setSelected] = useState(false);
+
 
   const addItem = () => {
     // console.log(inputDay);
@@ -70,12 +70,21 @@ function MyDay() {
               activeOpacity={0.7}
               style={styles.itemContainer}
             >
-              <TouchableOpacity
-                style={styleScrollView.checkBox}
-                onPress={ () => setSelected(!selected)}
+              <Pressable
+                style={({pressed}) => (
+                  {backgroundColor: pressed ? 'blue' : 'red',
+                  height: 25,
+                  width: 25,
+                  borderColor: '#7097a4',
+                  borderWidth: 2.5,
+                  borderRadius: 50,
+                  marginTop: 13,
+                  }                  
+                )}
+
 
               >
-              </TouchableOpacity>
+              </Pressable>
               <Text style={styles.itemTitle}>{item.data}</Text>
               <TouchableOpacity
                 onPress={() => removeItem(item.key)}
