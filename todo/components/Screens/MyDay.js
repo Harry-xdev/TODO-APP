@@ -7,7 +7,7 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 function MyDay() {
   const [inputDay, setInputDay] = useState('');
   const [getList, setList] = useState([]);
-
+ 
 
   const addItem = () => {
     // console.log(inputDay);
@@ -18,9 +18,15 @@ function MyDay() {
     } else {
       setList([
         ...getList,
-        { key: Math.random().toString(), data: inputDay }
+        { 
+          key: Math.random().toString(), 
+          data: inputDay,
+          finished: false,
+        }
       ]);
       setInputDay('');
+      console.log(getList)
+
     }
 
   }
@@ -71,18 +77,16 @@ function MyDay() {
               style={styles.itemContainer}
             >
               <Pressable
-                style={({pressed}) => (
-                  {backgroundColor: pressed ? 'blue' : 'red',
+                style={({ pressed }) => ({
+                  backgroundColor: pressed  ? 'green' : 'red',
                   height: 25,
                   width: 25,
                   borderColor: '#7097a4',
                   borderWidth: 2.5,
                   borderRadius: 50,
                   marginTop: 13,
-                  }                  
+                }
                 )}
-
-
               >
               </Pressable>
               <Text style={styles.itemTitle}>{item.data}</Text>
@@ -118,7 +122,7 @@ const styleScrollView = StyleSheet.create({
     borderRadius: 50,
     marginTop: 13,
   }
-  
+
 })
 
 export default MyDay;
