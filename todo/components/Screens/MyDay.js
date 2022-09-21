@@ -3,10 +3,13 @@ import { View, Text, TouchableOpacity, TextInput, ScrollView, ImageBackground, S
 
 import styles from "../StyleSheet/TodoScreen";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import CheckBox from "../CheckBox/Checkbox";
 
 function MyDay() {
   const [inputDay, setInputDay] = useState('');
   const [getList, setList] = useState([]);
+  const [music, setMusic] = useState(false);
+
  
 
   const addItem = () => {
@@ -21,7 +24,6 @@ function MyDay() {
         { 
           key: Math.random().toString(), 
           data: inputDay,
-          finished: false,
         }
       ]);
       setInputDay('');
@@ -76,19 +78,11 @@ function MyDay() {
               activeOpacity={0.7}
               style={styles.itemContainer}
             >
-              <Pressable
-                style={({ pressed }) => ({
-                  backgroundColor: pressed  ? 'green' : 'red',
-                  height: 25,
-                  width: 25,
-                  borderColor: '#7097a4',
-                  borderWidth: 2.5,
-                  borderRadius: 50,
-                  marginTop: 13,
-                }
-                )}
-              >
-              </Pressable>
+              <CheckBox 
+                isChecked={music}
+                onPress={() => setMusic(!music)}
+              />         
+
               <Text style={styles.itemTitle}>{item.data}</Text>
               <TouchableOpacity
                 onPress={() => removeItem(item.key)}
