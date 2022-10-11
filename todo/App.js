@@ -1,57 +1,62 @@
+
+import 'react-native-gesture-handler';
 import React from 'react';
 import { View, Text, TextInput } from 'react-native';
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-// Screens
-import Planned from './components/Screens/Planned';
-import MyDay from './components/Screens/MyDay';
-import Important from './components/Screens/Important';
 
-// Icon
-import Icon from 'react-native-vector-icons/FontAwesome';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Octicons from "react-native-vector-icons/Octicons";
+
+// StackScreens
+import StackScreens from './components/Routes/StackScreens';
+// TabBar
+import BottomTabBar from './components/Routes/BottomTabBar';
 
 
 
 
-const Tab = createBottomTabNavigator();
+
 
 export default function App() {
 
   return (
     <NavigationContainer>
-      <Tab.Navigator initialRouteName='My Day'>
-        <Tab.Screen
-          name={"My Day"}
-          component={MyDay}
-          options={{
-            tabBarIcon: (color) => (<Icon name={'sun-o'} color={color} size={30} />)
-
-          }}
-
-        />
-
-        <Tab.Screen
-          name={"Planned"}
-          component={Planned}
-          options={{
-            tabBarIcon: (color) => (<MaterialIcons name={'schedule'} color={color} size={30} />)
-          }}
-
-        />
-        <Tab.Screen
-          name={"Important"}
-          component={Important}
-          options={{
-            tabBarIcon: (color) => (<Octicons name={'star'} color={color} size={30} />)
-          }}
-
-        />
-      </Tab.Navigator>
+      {/* <StackScreens /> */}
+      <BottomTabBar />
     </NavigationContainer>
+
+
+    // Tab bar code đừng xóa
+    // <NavigationContainer>
+    //   <Tab.Navigator initialRouteName='Home'>
+    //     <Tab.Screen
+    //       name= {'Home'}
+    //       component={Home}
+    //       options={{
+    //         tabBarIcon: () => (<MaterialIcons name={'home-filled'} color={'gray'} size={34} />)
+    //       }}
+
+    //     />
+
+    //     <Tab.Screen
+    //       name={"My Day"}
+    //       component={MyDay}
+    //       options={{
+    //         tabBarIcon: (color) => (<Icon name={'sun-o'} color={color} size={30} />)
+
+    //       }}
+
+    //     />
+    //     <Tab.Screen
+    //       name={"Important"}
+    //       component={Important}
+    //       options={{
+    //         tabBarIcon: (color) => (<Octicons name={'star'} color={color} size={30} />)
+    //       }}
+
+    //     />
+    //   </Tab.Navigator>
+    // </NavigationContainer>
 
   )
 }

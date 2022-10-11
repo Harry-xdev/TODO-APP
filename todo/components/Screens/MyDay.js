@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, TextInput, ScrollView, ImageBackground, S
 
 import styles from "../StyleSheet/TodoScreen";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import CheckBox from "../CheckBox/Checkbox";
+import CheckBox from "../Routes/StackScreens";
 
 function MyDay() {
   const [inputDay, setInputDay] = useState('');
