@@ -3,12 +3,12 @@ import { View, Text, TouchableOpacity, TextInput, ScrollView, ImageBackground, S
 
 import styles from "../StyleSheet/TodoScreen";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import CheckBox from "../Routes/StackScreens";
 
-function MyDay() {
+
+const MyDay = () => {
   const [inputDay, setInputDay] = useState('');
   const [getList, setList] = useState([]);
-  const [music, setMusic] = useState(false);
+
 
  
 
@@ -77,11 +77,7 @@ function MyDay() {
               key={item.key}
               activeOpacity={0.7}
               style={styles.itemContainer}
-            >
-              <CheckBox 
-                isChecked={music}
-                onPress={() => setMusic(!music)}
-              />         
+            >      
 
               <Text style={styles.itemTitle}>{item.data}</Text>
               <TouchableOpacity

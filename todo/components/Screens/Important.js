@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, TextInput, ScrollView, ImageBackground } 
 import styles from "../StyleSheet/TodoScreen";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
-function Important() {
+const Important = () => {
   const [inputDay, setInputDay] = useState('');
   const [getList, setList] = useState([]);
 

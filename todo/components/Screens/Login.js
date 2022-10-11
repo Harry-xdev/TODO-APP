@@ -1,13 +1,9 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, TextInput, ScrollView, ImageBackground, NavigationContainer, Pressable } from "react-native";
+import { View, Text, TouchableOpacity, ImageBackground} from "react-native";
 import styles from "../StyleSheet/AuthenticationScreen";
 
 
-function Login() {
-
-  // const handleOnPress = () => {
-
-  // }
+const Login = () =>  {
 
   return (
     <View style={{ alignItems: 'center', justifyContent: 'center' }}>
@@ -21,14 +17,14 @@ function Login() {
         // source={{ uri: 'asset:/images/Sky Motivation Quote Phone Wallpaper.jpg' }}
       >
         <View>
-          <Pressable 
+          <TouchableOpacity 
             style={styles.signInBtn}
 
             >
             <Text>
               Login
             </Text>
-          </Pressable>
+          </TouchableOpacity>
         </View>
 
       </ImageBackground>
